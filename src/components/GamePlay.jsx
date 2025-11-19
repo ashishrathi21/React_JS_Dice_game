@@ -39,7 +39,7 @@ const GamePlay = () => {
     <section className="px-4 md:px-0">
       
       {/* Top Section */}
-      <div className="mt-5 flex flex-col md:flex-row items-center md:items-start justify-around gap-10 py-10">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-around gap-10 py-10">
 
         {/* Score */}
         <TotalScore score={score} />

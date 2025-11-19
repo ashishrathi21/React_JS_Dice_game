@@ -8,8 +8,7 @@ import dice5 from '../assets/5.png'
 import dice6 from '../assets/6.png'
 
 const RollDice = ({ currentDice, generateRandomDice, resetGame }) => {
-
-    const [showRule, setShowRule] = useState(false)
+  const [showRule, setShowRule] = useState(false)
 
   const diceImages = {
     1: dice1,
@@ -21,7 +20,7 @@ const RollDice = ({ currentDice, generateRandomDice, resetGame }) => {
   }
 
   return (
-    <section className="flex flex-col items-center gap-6 py-10">
+    <section className="flex flex-col items-center gap-6 px-4">
 
       {/* Dice */}
       <div className="cursor-pointer hover:scale-105 transition duration-200">
@@ -29,35 +28,38 @@ const RollDice = ({ currentDice, generateRandomDice, resetGame }) => {
           onClick={generateRandomDice}
           src={diceImages[currentDice]}
           alt="dice" 
-          className="w-40 h-40 object-contain"
+          className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain"
         />
       </div>
 
       {/* Text */}
-      <p className="text-xl font-semibold text-gray-700">
+      <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 text-center">
         Click On Dice To Roll
       </p>
 
       {/* Buttons */}
-      <div className="flex flex-col gap-4 w-40">
-
+      <div className="flex flex-row md:flex-col gap-4 w-full max-w-xs">
         <button 
           onClick={resetGame}
-          className="w-full bg-black text-white py-2 rounded-lg font-semibold hover:bg-gray-800 transition"
+          className="flex-1 bg-black text-white py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-800 transition"
         >
           Reset Dice
         </button>
 
         <button 
-        onClick={() => setShowRule(!showRule)}
-        className="w-full border border-black py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+          onClick={() => setShowRule(!showRule)}
+          className="flex-1 border border-black py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
           Show Rules
         </button>
       </div>
 
-      <div>
-        {showRule && <ShowRulesDiv />}
-      </div>
+      {/* Show Rules */}
+      {showRule && (
+        <div className="mt-4 w-full max-w-md">
+          <ShowRulesDiv />
+        </div>
+      )}
 
     </section>
   )
