@@ -56,7 +56,7 @@ const RollDice = ({ currentDice, generateRandomDice, resetGame }) => {
 
       {/* Show Rules */}
       {showRule && (
-        <div className="mt-4 w-full max-w-md">
+        <div className="mt-4 w-full max-w-2xl">
           <ShowRulesDiv />
         </div>
       )}
